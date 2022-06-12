@@ -1,0 +1,49 @@
+CREATE TABLE Pessoa (
+    cpf VARCHAR(255) PRIMARY KEY UNIQUE,
+    nome VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    perfil VARCHAR(255) NOT NULL CHECK (perfil in ('Gerente', 'Empregado'))
+);
+
+CREATE TABLE Gerente (
+    cpf VARCHAR(255) PRIMARY KEY REFERENCES Pessoa (cpf) ON DELETE CASCADE,
+    formacao VARCHAR(255) NOT NULL CHECK (formacao in ('primario', 'medio', 'superior')),
+    email VARCHAR(255)  NOT NULL
+);
+
+CREATE TABLE Empregado (
+    cpf VARCHAR(255) PRIMARY KEY REFERENCES Pessoa (cpf) ON DELETE CASCADE,
+    matricula VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    temHabilidade BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE Contato (
+    cpf_empregado VARCHAR(255) REFERENCES Pessoa (cpf) ON DELETE CASCADE,
+    ddd VARCHAR(3) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    PRIMARY KEY (cpf_empregado,ddd,numero)
+);
+
+CREATE TABLE Supervisiona (
+    cpf_gerente VARCHAR(255) REFERENCES Pessoa (cpf) NOT NULL ON DELETE CASCADE,
+    cpf_empregado VARCHAR(255) REFERENCES Pessoa (cpf) NOT NULL,
+    PRIMARY KEY (cpf_gerente, cpf_empregado),
+    UNIQUE (cpf_empregado, cpf_gerente, id)
+);
+
+CREATE TABLE Produto (
+    preco FLOAT NOT NULL,
+    codigo VARCHAR(255) PRIMARY KEY UNIQUE
+);
+
+CREATE TABLE Venda (
+    data DATE NOT NULL,
+    quantidade INTEGER NOT NULL,
+    total FLOAT NOT NULL,
+    cpf_empregado VARCHAR(255) NOT NULL REFERENCES Pessoa (cpf),
+    codigo_produto VARCHAR(255) NOT NULL REFERENCES Produto (codigo),
+    PRIMARY KEY (cpf_empregado, codigo_produto),
+    UNIQUE (cpf_empregado, codigo_produto, id_venda)
+);
+ 
