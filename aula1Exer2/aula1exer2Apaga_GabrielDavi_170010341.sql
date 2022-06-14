@@ -1,3 +1,5 @@
+USE db;
+
 DROP TABLE Pessoa;
 DROP TABLE Gerente;
 DROP TABLE Empregado;
