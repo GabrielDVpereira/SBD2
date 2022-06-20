@@ -1,9 +1,9 @@
--- --------  << Aula1exerc2 >>  ----------
+-- --------  << Aula1exerc2Evolucao >>  ----------
 --
 --            SCRIPT DE REMOCAO (DDL)
 --
--- Data Criacao ...........: 10/06/2022
--- Autor(es) ..............: Joao Victor Valadao de Brito
+-- Data Criacao ...........: 19/06/2022
+-- Autor(es) ..............: Gabriel Davi Silva Pereira
 -- Banco de Dados .........: MySQL 8.0
 -- Base de Dados (nome) ...: aula1exer2
 --
@@ -16,10 +16,9 @@
 
 USE aula1exer2;
 
-DROP TABLE descreve;
 DROP TABLE supervisiona;
 DROP TABLE telefone;
-DROP TABLE VENDA;
+DROP TABLE VENDE;
 DROP TABLE PRODUTO;
 DROP TABLE EMPREGADO;
 DROP TABLE GERENTE;

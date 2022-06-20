@@ -1,9 +1,9 @@
--- --------  << Aula1exerc2 >>  ----------
+-- --------  << Aula1exerc2Evolucao >>  ----------
 --
 --            SCRIPT DE INSERCAO (DML)
 --
--- Data Criacao ...........: 10/06/2022
--- Autor(es) ..............: Joao Victor Valadao de Brito
+-- Data Criacao ...........: 19/06/2022
+-- Autor(es) ..............: Gabriel Davi Silva Pereira
 -- Banco de Dados .........: MySQL 8.0
 -- Base de Dados (nome) ...: aula1exer2
 --
@@ -26,14 +26,14 @@ INSERT INTO PESSOA VALUES
 (44641549130, 'Rosane Vilela', '780a480G30');
 
 INSERT INTO GERENTE VALUES
-(11111, 'ensino médio', 73544843001, 'valdeci@email.com'),
-(22222, 'graduacao', 27493236163, 'jucilene@email.com'),
-(33333, 'graduacao', 40113832139, 'luciano@email.com');
+( 'ensino médio', 73544843001, 'valdeci@email.com'),
+( 'graduacao', 27493236163, 'jucilene@email.com'),
+( 'graduacao', 40113832139, 'luciano@email.com');
 
 INSERT INTO EMPREGADO VALUES
-(72004123, 54, 1, 11112, 97493546163),
-(72003113, 76, 1, 22223, 70113836139),
-(72002121, 34, 1, 33334, 44641549130);
+(72004123, 54, 11112, 97493546163),
+(72003113, 76, 22223, 70113836139),
+(72002121, 34, 33334, 44641549130);
 
 INSERT INTO telefone VALUES 
 (984843001, 11112),
@@ -45,17 +45,13 @@ INSERT INTO PRODUTO VALUES
 (222, 'Desodorante', 12.50),
 (333, 'Sabonete', 5.0);
 
-INSERT INTO VENDA VALUES
-('2020-04-03', 2, 10.0, 100, 11112),
-('2020-02-22', 2, 10.0, 101, 22223),
-('2020-02-10', 2, 10.0, 102, 33334);
+INSERT INTO VENDE VALUES
+('2020-04-03', 2, 11112, 111),
+('2020-02-22', 2, 11112, 111),
+('2020-02-10', 2, 11112, 111);
 
 INSERT INTO supervisiona VALUES
-(11112, 11111),
-(22223, 22222),
-(33334, 33333);
+(11112, 73544843001),
+(22223, 27493236163),
+(33334, 40113832139);
 
-INSERT INTO descreve VALUES
-(100, 111),
-(101, 222),
-(102, 333);

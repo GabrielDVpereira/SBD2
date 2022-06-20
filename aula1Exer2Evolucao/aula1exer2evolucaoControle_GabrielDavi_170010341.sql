@@ -1,9 +1,9 @@
--- --------  << Aula1exerc2 >>  ----------
+-- --------  << Aula1exerc2Evolucao >>  ----------
 --
 --            SCRIPT DE CONTROLE (DCL)
 --
--- Data Criacao ...........: 10/06/2022
--- Autor(es) ..............: Joao Victor Valadao de Brito
+-- Data Criacao ...........: 19/06/2022
+-- Autor(es) ..............: Gabriel Davi Silva Pereira
 -- Banco de Dados .........: MySQL 8.0
 -- Base de Dados (nome) ...: aula1exer2
 --

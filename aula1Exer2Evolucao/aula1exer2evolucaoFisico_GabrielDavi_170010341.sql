@@ -1,9 +1,9 @@
--- --------  << Aula1exerc2 >>  ----------
+-- --------  << Aula1exerc2Evolucao >>  ----------
 --
 --            SCRIPT DE CRIACAO (DDL)
 --
--- Data Criacao ...........: 10/06/2022
--- Autor(es) ..............: Joao Victor Valadao de Brito
+-- Data Criacao ...........: 19/06/2022
+-- Autor(es) ..............: Gabriel Davi Silva Pereira
 -- Banco de Dados .........: MySQL 8.0
 -- Base de Dados (nome) ...: aula1exer2
 --
@@ -26,7 +26,6 @@ CREATE TABLE PESSOA (
 )ENGINE = InnoDB;
 
 CREATE TABLE GERENTE (
-    matricula INT NOT NULL,
     formacaoEscolar VARCHAR(20) NOT NULL,
     cpf BIGINT NOT NULL,
     email VARCHAR(30) NOT NULL,
@@ -37,7 +36,6 @@ CREATE TABLE GERENTE (
 CREATE TABLE EMPREGADO (
     cep INT NOT NULL,
     numero INT NOT NULL,
-    telefone INT NOT NULL,
     matricula INT NOT NULL,
     cpf BIGINT NOT NULL,
     
@@ -52,15 +50,14 @@ CREATE TABLE PRODUTO (
     CONSTRAINT PRODUTO_PK Primary Key (codControle)
 )ENGINE = InnoDB;
 
-CREATE TABLE VENDA (
+CREATE TABLE VENDE (
     dataVenda DATE NOT NULL,
     quantidadeProduto INT NOT NULL,
-    precoTotal FLOAT NOT NULL,
-    notaFiscal INT NOT NULL,
     matricula INT NOT NULL,
+    codControle INT NOT NULL,
     
     CONSTRAINT VENDA_EMPREGADO_FK Foreign Key (matricula) REFERENCES EMPREGADO (matricula),
-    CONSTRAINT VENDA_PK Primary Key (notaFiscal)
+    CONSTRAINT VENDA_PK Foreign Key (codControle) REFERENCES PRODUTO (codControle)
 )ENGINE = InnoDB;
 
 CREATE TABLE telefone (
@@ -72,16 +69,8 @@ CREATE TABLE telefone (
 
 CREATE TABLE supervisiona (
     matriculaEmpregado INT NOT NULL,
-    matriculaGerente INT NOT NULL,
+    cpfGerente INT NOT NULL,
     
     CONSTRAINT supervisiona_EMPREGADO_FK Foreign Key (matriculaEmpregado) REFERENCES EMPREGADO (matricula),
-    CONSTRAINT supervisiona_GERENTE_FK Foreign Key (matriculaGerente) REFERENCES GERENTE (matricula)
-)ENGINE = InnoDB;
-
-CREATE TABLE descreve (
-    notaFiscal INT NOT NULL,
-    codControle INT NOT NULL,
-    
-	CONSTRAINT descreve_VENDA_FK Foreign Key (notaFiscal) REFERENCES VENDA (notaFiscal),
-    CONSTRAINT descreve_PRODUTO_FK Foreign Key (codControle) REFERENCES PRODUTO (codControle)
+    CONSTRAINT supervisiona_GERENTE_FK Foreign Key (cpfGerente) REFERENCES GERENTE (cpf)
 )ENGINE = InnoDB;
